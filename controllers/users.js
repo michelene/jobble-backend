@@ -15,27 +15,29 @@ router.get('/:userId', (req, res) => {
   User.findOne({ _id: req.params.userId }).then(data => res.json(data));
 });
 
-router.get('/savedjobs/:username', (req, res) => {
-  User.findOne({ _id: req.params.username }, { savedJobs }).then(data =>
-    res.json(data)
-  );
-});
+// doesn't work yet:
+// router.get('/savedjobs/:username', (req, res) => {
+//   User.findOne({ _id: req.params.username }, { savedJobs }).then(data =>
+//     res.json(data)
+//   );
+// });
 
-router.get('/savedjobs/:userId', (req, res) => {
-  const id = req.params.userId;
-  User.findOneById({ _id: req.params.userId }).then(data => res.json(data));
-});
+// doesn't work yet:
+// router.get('/savedjobs/:userId', (req, res) => {
+//   const id = req.params.userId;
+//   User.findOneById({ _id: req.params.userId }).then(data => res.json(data));
+// });
 
 router.get('/username/:username', (req, res) => {
   User.findOne({ username: req.params.username }).then(data => res.json(data));
 });
 
+// router.get('/login/:username', (req, res) => {
+//   User.findOne({ username: req.params.username }).then(data => res.json(data));
+// });
+
 router.get('/login/:username', (req, res) => {
   User.findOne({ username: req.params.username }).then(data => res.json(data));
-});
-
-router.get('/login', (req, res) => {
-  User.findOne({ username: req.body.username }).then(data => res.json(data));
 });
 
 router.post('/create', (req, res) => {
